@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 # UUID="00277430-85b5-46e2-a6c9-4fe3da538187"
 # APP_NAME="lyz7805-v2ray"
 REGION="hkg"
@@ -15,7 +16,7 @@ fi
 
 if [ "$(flyctl info --app "${APP_NAME}" | grep -o "Could not resolve App")" = "Could not resolve App" ]; then
     printf '\e[33mCould not resolve app. Next, create the App.\n\e[0m'
-    flyctl create "${APP_NAME}"
+    flyctl create --name "${APP_NAME}"
 
     if [ "$(flyctl info --app "${APP_NAME}" | grep -o "Could not resolve App")" != "Could not resolve App" ]; then
         printf '\e[32mCreate app success.\n\e[0m'
